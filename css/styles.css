@@ -1,0 +1,167 @@
+:root {
+  /* font family */
+  --ff1: "Fraunces", serif;
+  --ff2: "Montserrat", sans-serif;
+
+  /* colors */
+
+  /* Primary colors */
+  --dark-cyan: hsl(158 36% 37%);
+  --darker-cyan: hsl(158, 72%, 17%);
+  --cream: hsl(30 38% 92%);
+  --bg-color: hsl(26, 40%, 92%);
+
+  /* Neutral colors */
+  --very-dark-blue: hsl(212 21% 14%);
+  --dark-grayish-blue: hsl(228 12% 48%);
+  --white: hsl(0 0% 100%);
+
+  --primary-fs: 0.875rem;
+
+  --fw-1: 500;
+  --fw-2: 700;
+}
+
+/* Use a more-intuitive box-sizing model. */
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+  Typographic tweaks!
+  - Add accessible line-height
+  - Improve text rendering
+*/
+body {
+  display: grid;
+  place-content: center;
+  background-color: var(--bg-color);
+  color: var(--dark-grayish-blue);
+  font-family: var(--ff2);
+  font-size: var(--primary-fs);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  width: calc(100% - 2rem);
+  height: 100vh;
+  margin-inline: auto;
+}
+
+/* Improve media defaults */
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Remove built-in form typography styles */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Avoid text overflows */
+p,
+h1 {
+  overflow-wrap: break-word;
+}
+
+.product {
+  border-radius: 0.6rem;
+  overflow: hidden;
+  display: grid;
+  max-width: 500px;
+}
+
+@media (min-width: 600px) {
+  .product {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.product-description {
+  display: grid;
+  gap: 1rem;
+  background-color: var(--white);
+  padding: 1.5rem;
+}
+
+.product-description-detail {
+  font-size: 0.725rem;
+  font-weight: var(--fw-1);
+}
+
+.product-type {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+}
+
+.product-title {
+  color: var(--very-dark-blue);
+  font-family: var(--ff1);
+  font-size: 1.8rem;
+  line-height: 1;
+  margin-block: 1rem;
+}
+
+.prices {
+  font-size: 0.7rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.prices p:first-child {
+  color: var(--dark-cyan);
+  font-family: var(--ff1);
+  font-weight: var(--fw-2);
+  font-size: 1.8rem;
+}
+
+.btn {
+  padding: 0.7rem 1.5rem;
+  font-size: 0.8rem;
+  font-weight: var(--fw-2);
+  color: var(--white);
+  background-color: var(--dark-cyan);
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+}
+
+.btn[data-icon="shopping-cart"]::before {
+  content: "";
+  background-image: url("../images/icon-cart.svg");
+  width: 15px;
+  height: 16px;
+}
+
+.btn:is(:hover, :focus) {
+  background-color: var(--darker-cyan);
+}
+
+.attribution {
+  font-size: 0.8125rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+  text-decoration: none;
+}
